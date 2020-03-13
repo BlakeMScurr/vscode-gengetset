@@ -48,7 +48,7 @@ export function generateCode(classes: IClass[], type: EType, pickedItem?: vscode
     } else if (type === EType.CONSTRUCTOR) {
         vscode.window.activeTextEditor.edit((builder) => {
             for (let i = 0; i < classes.length; i++) {
-                if (currentPos.isAfterOrEqual(classes[i].startPos) || currentPos.isBeforeOrEqual(classes[i].endPos)) {
+                if (currentPos.isAfterOrEqual(classes[i].startPos) && currentPos.isBeforeOrEqual(classes[i].endPos)) {
                     builder.insert(currentPos, createConstructor(classes[i].vars));
                     return;
                 }
