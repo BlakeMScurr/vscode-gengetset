@@ -172,7 +172,8 @@ export function generateClassesList(type: EType): IClass[] {
                                         break;
                                     }
                                 }
-                            } else if (type == EType.SETTER || type == EType.BOTH) {
+                            }
+                            if (type == EType.SETTER || type == EType.BOTH) {
                                 for (let j = 0; j < _class.setters.length; j++) {
                                     if (_class.vars[i].figure.toLowerCase() === _class.setters[j].toLowerCase()) {
                                         _class.vars.splice(i, 1);
